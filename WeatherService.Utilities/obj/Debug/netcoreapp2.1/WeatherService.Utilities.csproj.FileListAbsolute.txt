@@ -1,0 +1,12 @@
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\bin\Debug\netcoreapp2.1\WeatherService.Utilities.deps.json
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\bin\Debug\netcoreapp2.1\WeatherService.Utilities.dll
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\bin\Debug\netcoreapp2.1\WeatherService.Utilities.pdb
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.csprojAssemblyReference.cache
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.AssemblyInfoInputs.cache
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.AssemblyInfo.cs
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.csproj.CopyComplete
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.dll
+C:\Users\chandrayan.milind\source\repos\PrudentialWeatherService\WeatherService.Utilities\obj\Debug\netcoreapp2.1\WeatherService.Utilities.pdb

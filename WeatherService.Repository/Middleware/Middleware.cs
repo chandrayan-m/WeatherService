@@ -13,16 +13,13 @@ namespace WeatherService.Repository.Middleware
     public class Middleware : IMiddleware
     {
         private readonly IWeatherRepository _weatherRepository;
-        //private readonly IMapper _mapper;
-        //private readonly string _appId;
-        //private readonly string _baseAddress;
-        //private readonly string _localFilePath;
+
         public Middleware(IWeatherRepository weatherRepository)
         {
             _weatherRepository = weatherRepository;
         }
 
-        public async Task<IList<OpenWeatherReport>> GetWeatherReport(IEnumerable<Entity.CityDAO> cities , string appId, string baseAddress, string localFilePath)
+        public async Task<IList<OpenWeatherReport>> GetWeatherReport(IEnumerable<Entity.CityDAO> cities, string appId, string baseAddress, string localFilePath)
         {
             var citiesReport = new List<Task<OpenWeatherReport>>();
             foreach (var city in cities)
@@ -34,18 +31,19 @@ namespace WeatherService.Repository.Middleware
             LogWeatherReport(report, localFilePath);
             return report;
         }
-
+        /// <summary>
+        /// Log the files to the localPathFile specified
+        /// </summary>
+        /// <param name="reports"></param>
+        /// <param name="localFilePath"></param>
         private void LogWeatherReport(OpenWeatherReport[] reports, string localFilePath)
         {
+            foreach (var report in reports)
             {
-
-                foreach (var report in reports)
-                {
-                    var json = (JObject)JToken.FromObject(report);
-                    string cityName = $"{report.name}";
-                    string fileName = cityName + "_" + DateTime.Now.ToString("MMddyyyy");
-                    StorageService.LogDailyWeatherReport(json, fileName, localFilePath);
-                }
+                var json = (JObject)JToken.FromObject(report);
+                string cityName = $"{report.name}";
+                string fileName = cityName + "_" + DateTime.Now.ToString("MMddyyyy");
+                StorageService.LogDailyWeatherReport(json, fileName, localFilePath);
             }
         }
     }

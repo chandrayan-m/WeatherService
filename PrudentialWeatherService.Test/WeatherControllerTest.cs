@@ -20,6 +20,7 @@ namespace PrudentialWeatherService.Test
         private IList<CityDAO> citiesDAO;
         private IList<OpenWeatherReport> weatherReport;
         private IList<OpenWeatherReport> nullresponse = null;
+        ConfigurationItem configurations = new ConfigurationItem() { appId = "", baseAddress = "", localFilePath = "" };
 
 
         [TestInitialize]
@@ -28,12 +29,13 @@ namespace PrudentialWeatherService.Test
             weatherReport = new List<OpenWeatherReport> { new OpenWeatherReport { id = 12345, name = "Paris" } };
         }
         [TestMethod]
-        public async void GetWeatherReports_ReturnsOKStatusCode()
+        public async Task GetWeatherReports_ReturnsOKStatusCode()
         {
             //Arrange
             citiesDAO = new List<CityDAO> { new CityDAO { cityId = 1234 } };
             var mock = new Mock<IMiddleware>();
             var config = new Mock<IOptions<ConfigurationItem>>();
+            config.Setup(c => c.Value).Returns(configurations);
             mock.Setup(p => p.GetWeatherReport(citiesDAO, "", "", "")).ReturnsAsync(weatherReport);
             var controller = new Controllers.WeatherController(mock.Object, config.Object);
 
@@ -42,27 +44,29 @@ namespace PrudentialWeatherService.Test
             // to case and check for OkObjectResult
 
             //Assert
-            Assert.IsNotNull(result);
+            
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 
         }
 
         [TestMethod]
-        public async void GetWeatherReports_Returns500StatusCode()
+        public async Task GetWeatherReports_Returns500StatusCode()
         {
             //Arrange
             citiesDAO = new List<CityDAO> { new CityDAO { cityId = 12345} };
             var mock = new Mock<IMiddleware>();
             var config = new Mock<IOptions<ConfigurationItem>>();
+            config.Setup(c => c.Value) ;
             mock.Setup(p => p.GetWeatherReport(citiesDAO, "", "", "")).ReturnsAsync(nullresponse);
             var controller = new Controllers.WeatherController(mock.Object, config.Object);
 
             //Act
-            IActionResult result = await controller.GetWeatherReports(citiesDAO) as BadRequestResult;
+            IActionResult result = await controller.GetWeatherReports(citiesDAO) as StatusCodeResult;
             // to case and check for BadRequestResult
 
             //Assert
-            Assert.IsInstanceOfType(result, typeof (BadRequestResult));
+            
+            Assert.IsInstanceOfType(result, typeof (StatusCodeResult));
 
         }
     }

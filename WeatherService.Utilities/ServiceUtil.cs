@@ -8,15 +8,14 @@ namespace WeatherService.Utilities
 {
     public class ServiceUtil<T> : IServiceUtil<T>
     {
-        private readonly string _mediaType = "application/json";
-        private readonly string _hostAddress;
+        private const string _mediaType = "application/json";
 
-        //public ServiceUtil(string hostName)
-        //{
-        //    this._hostAddress = hostName;
-        //    this._mediaType = "application/json";
-        //}
-
+        /// <summary>
+        /// Retrieves Weather Report from OpenWeatherMap API
+        /// </summary>
+        /// <param name="fullAddress"></param>
+        /// <param name="hostAddress"></param>
+        /// <returns></returns>
         public async Task<T> GetWeatherReportAsync(string fullAddress, string hostAddress)
         {
             using (var client = new HttpClient())

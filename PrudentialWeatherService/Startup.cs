@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using PrudentialWeatherService.Model;
 using WeatherService.Repository.Entity;
 using WeatherService.Repository.Middleware;
 using WeatherService.Repository.Repository;
@@ -37,17 +32,6 @@ namespace PrudentialWeatherService
 
             services.Configure<ConfigurationItem>(Configuration.GetSection("AppSettings"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            // Create the container builder.
-            //var builder = new ContainerBuilder();
-            //builder.RegisterType<Middleware>().As<IMiddleware>().InstancePerRequest();
-            //builder.RegisterType<WeatherRepository>().As<IWeatherRepository>()
-            //    .WithParameter("baseUrl", Configuration["AppSettings:baseAddress"])
-            //    .WithParameter("apiId", Configuration["AppSettings:apiId"]).InstancePerRequest();
-            
-            //builder.Populate(services);
-            //this.ApplicationContainer = builder.Build();
-            //// Create the IServiceProvider based on the container.
-            //return new AutofacServiceProvider(this.ApplicationContainer);
                         
         }
 

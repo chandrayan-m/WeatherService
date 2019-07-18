@@ -40,10 +40,13 @@ namespace WeatherService.Repository.Middleware
         {
             foreach (var report in reports)
             {
-                var json = (JObject)JToken.FromObject(report);
-                string cityName = $"{report.name}";
-                string fileName = cityName + "_" + DateTime.Now.ToString("MMddyyyy");
-                StorageService.LogDailyWeatherReport(json, fileName, localFilePath);
+                if (report != null)
+                {
+                    var json = (JObject)JToken.FromObject(report);
+                    string cityName = $"{report.name}";
+                    string fileName = cityName + "_" + DateTime.Now.ToString("MMddyyyy");
+                    StorageService.LogDailyWeatherReport(json, fileName, localFilePath);
+                }
             }
         }
     }

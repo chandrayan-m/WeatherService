@@ -8,12 +8,6 @@ namespace WeatherService.Repository.Repository
 {
     public class WeatherRepository : ServiceUtil<OpenWeatherReport>, IWeatherRepository
     {
-
-        public WeatherRepository() : base()
-        {
-           
-        }
-
         public async Task<OpenWeatherReport> GetWeatherReport(int cityId, string appId, string hostURL)
         {
             return await GetWeatherReportAsync($"weather?id={cityId}&appid={appId}" , hostURL);
